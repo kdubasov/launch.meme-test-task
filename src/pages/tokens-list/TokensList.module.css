@@ -1,0 +1,33 @@
+.wrapper {
+  max-height: calc(100dvh - 56px);
+  padding: 2em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+.table {
+  max-width: 1200px;
+  min-width: 600px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.table > thead > tr > td {
+  padding: 8px 16px;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+@media (max-width: 991px) {
+  .wrapper {
+    padding: .25em;
+    gap: 1em;
+  }
+}
