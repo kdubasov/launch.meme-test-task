@@ -1,7 +1,8 @@
 import React, {FormEvent, useState} from 'react';
 import styles from "./TokenSearch.module.css";
 import {useAppDispatch} from "../../store/store";
-import {setSearchValue, setTokens} from "../../store/slices/layout";
+import {setSearchValue} from "../../store/slices/layout";
+import SearchIcon from "../../shared/assets/icons/SearchIcon";
 
 const TokenSearch = () => {
    const [value, setValue] = useState('')
@@ -13,19 +14,18 @@ const TokenSearch = () => {
    }
 
    return (
-      <form className={styles.searchWrapper} onSubmit={handleSubmit}>
-         <label htmlFor="q" className={styles.srOnly}>Search</label>
+      <form className={styles.wrapper} onSubmit={handleSubmit}>
+         <label className={styles.slash}>/</label>
          <input
             onChange={(e) => setValue(e.target.value)}
             value={value}
-            id="q"
             className={styles.input}
             type="search"
-            placeholder="Search tokens…"
+            placeholder="Search for tokens"
          />
          <button className={styles.button} type="submit">
-            <span className={styles.buttonIcon} aria-hidden="true">🔍</span>
-            Search
+            <span>Find</span>
+            <SearchIcon />
          </button>
       </form>
    );

@@ -1,15 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TToken } from "../../types/tokens";
+import { TToken } from "../../shared/types/tokens";
 import { TRootState } from "../store";
 
 interface ILayout {
   tokens: TToken[] | null;
+  activeToken: TToken | null;
   isTokensLoading: boolean;
   searchValue: string
 }
 
 const initialState: ILayout = {
   tokens: null,
+  activeToken: null,
   isTokensLoading: false,
   searchValue: '',
 };
@@ -28,6 +30,9 @@ export const layout = createSlice({
   reducers: {
     setTokens: (state, action: PayloadAction<TToken[] | null>) => {
       state.tokens = action.payload;
+    },
+    setActiveToken: (state, action: PayloadAction<TToken | null>) => {
+      state.activeToken = action.payload;
     },
     setSearchValue: (state, action: PayloadAction<string>) => {
       state.searchValue = action.payload;
@@ -61,8 +66,9 @@ export const layout = createSlice({
 });
 
 export const selectTokens = (store: TRootState) => store.layout.tokens
+export const selectActiveToken = (store: TRootState) => store.layout.activeToken
 export const selectIsTokensLoading = (store: TRootState) => store.layout.isTokensLoading
 export const selectSearchValue = (store: TRootState) => store.layout.searchValue
 
-export const { setTokens, setIsTokensLoading, setOneToken, addToken, setSearchValue } = layout.actions;
+export const { setTokens, setIsTokensLoading, setOneToken, addToken, setSearchValue, setActiveToken } = layout.actions;
 export default layout.reducer;

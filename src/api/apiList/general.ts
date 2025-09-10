@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { baseQueryWithReauth } from "../constants";
-import type { TToken } from "../../types/tokens";
+import type { TToken } from "../../shared/types/tokens";
 
 type TTokensPayload = {
   page: number;

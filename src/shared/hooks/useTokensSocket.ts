@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
-import { useAppDispatch } from "../store/store";
+import { useAppDispatch } from "../../store/store";
 import { TToken } from "../types/tokens";
-import { addToken, setOneToken } from "../store/slices/layout";
+import { addToken, setOneToken } from "../../store/slices/layout";
 
 const WS_URL = "wss://launch.meme/connection/websocket";
 const IDLE_MS = 5000;

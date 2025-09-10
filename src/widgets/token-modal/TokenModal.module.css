@@ -1,17 +1,22 @@
-.wrapper > td {
-   padding: 12px 16px;
-   vertical-align: middle;
+.wrapper {
+   width: 500px;
+
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 1em;
 }
-.wrapper > td:first-child {
-   border-radius: 12px 0 0 12px;
+
+.item {
+   display: flex;
+   flex-direction: column;
+   gap: .5em;
 }
-.wrapper > td:nth-child(5) {
-   border-radius: 0 12px 12px 0;
+.wrapper > .item:first-child {
+   grid-column: 1 / -1;
 }
-.wrapper:hover td {
-   cursor: pointer;
-   transition: .15s;
-   background: rgba(255, 255, 255, 0.1);
+.item > h4 {
+   font-weight: 500;
+   color: rgba(255, 255, 255, 0.75);
 }
 
 .colMeta {
@@ -19,14 +24,13 @@
    gap: 1em;
 }
 .logo {
-   margin-top: 12px;
    display: flex;
    flex-direction: column;
    align-items: center;
    gap: .25em;
 }
 .logo > img {
-   width: 54px;
+   width: 64px;
    aspect-ratio: 1;
 
    border-radius: 12px;
@@ -36,8 +40,7 @@
    opacity: .4;
 }
 .creds {
-   margin-top: 20px;
-
+   margin-top: 12px;
    display: flex;
    flex-direction: column;
    gap: .15em;
@@ -53,13 +56,6 @@
 .creds > small {
    opacity: .4;
    text-transform: uppercase;
-}
-
-.colCreator,
-.colVolume,
-.colMcap,
-.colHolders {
-   text-align: right;
 }
 
 .colCreator > h4 > a {
@@ -90,9 +86,6 @@
    color: var(--danger);
 }
 
-.colMcap {
-   text-align: right;
-}
 .colMcap > h4 {
    font-weight: 500;
 }
@@ -106,45 +99,14 @@
    color: var(--success);
 }
 
-@media (max-width: 768px) {
-   .wrapper > td {
-      padding: 8px 12px;
-   }
-   .wrapper > td:nth-child(2) {
-      display: none;
-   }
-
-   .logo > img {
-      width: 42px;
-   }
-   .logo {
-      margin-top: 6px;
-   }
-   .creds {
-      margin-top: 10px;
-   }
-}
+/*media*/
 @media (max-width: 560px) {
-   .wrapper > td {
-      padding: 8px;
-   }
-   .wrapper > td:nth-child(4) {
-      border-radius: 0 12px 12px 0;
-   }
-   .wrapper > td:nth-child(5) {
-      display: none;
+   .wrapper {
+      width: 375px;
    }
 }
 @media (max-width: 420px) {
-   .colMeta {
-      gap: .5em;
-   }
-   .creds > h4 {
-      max-width: 75px;
-   }
-}
-@media (max-width: 365px) {
-   .wrapper > td {
-      padding: 4px;
+   .wrapper {
+      width: 280px;
    }
 }

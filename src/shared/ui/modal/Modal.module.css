@@ -1,0 +1,88 @@
+.overlay {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #090c1740;
+  backdrop-filter: blur(3px);
+  z-index: 99;
+}
+
+.content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: fit-content;
+  min-width: 240px;
+  min-height: 100px;
+  max-height: 95dvh;
+  padding: 1.25em;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 1em;
+
+  border-radius: 16px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), rgba(34, 34, 34, 0.80);
+  box-shadow: 0 0 80px 0 rgba(0, 0, 0, 0.80);
+  backdrop-filter: blur(20px);
+  border: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.header {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.header > h3 {
+  font-size: 24px;
+  font-weight: 500;
+}
+.closeButton {
+  margin: -20px -10px 0 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.closeButton svg {
+  font-size: 28px;
+}
+
+/*media*/
+@media (max-width: 991px) {
+  .content {
+    padding: 0.925em 1.25em;
+  }
+  .header > h3 {
+    font-size: 20px;
+  }
+  .header > button > img {
+    width: 15px;
+    height: 15px;
+  }
+}
+@media (max-width: 500px) {
+  .content {
+    padding: 0.75em 1em;
+  }
+  .header > h3 {
+    font-size: 16px;
+  }
+  .closeButton {
+    margin: -6px -8px 0 0;
+  }
+}
